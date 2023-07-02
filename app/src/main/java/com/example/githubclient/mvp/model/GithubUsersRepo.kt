@@ -12,4 +12,8 @@ class GithubUsersRepo {
         return users
     }
 
+    fun getUser(login: String) : GithubUser{
+        return GithubUser(login)
+    }
+
 }
