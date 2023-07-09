@@ -2,13 +2,10 @@ package com.example.githubclient.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import com.example.githubclient.App
-import com.example.githubclient.R
 import com.example.githubclient.databinding.FragmentUserBinding
-import com.example.githubclient.databinding.FragmentUsersBinding
 import com.example.githubclient.mvp.model.GithubUser
 import com.example.githubclient.mvp.model.GithubUsersRepo
 import com.example.githubclient.mvp.presenter.UserPresenter
@@ -25,8 +22,9 @@ class UserFragment : MvpAppCompatFragment(), UserView, BackButtonListener {
         fun newInstance(login: String) =
             UserFragment().apply { arguments = bundleOf(ARG_USER to login) }
     }
+
     private val login: String? by lazy {
-        arguments?.getString(ARG_USER,"login 1")
+        arguments?.getString(ARG_USER, "login 1")
     }
     private var _binding: FragmentUserBinding? = null
     private val binding
@@ -48,9 +46,8 @@ class UserFragment : MvpAppCompatFragment(), UserView, BackButtonListener {
     override fun backPressed() = presenter.backPressed()
 
     override fun setUser(user: GithubUser) {
-        _binding?.rvUser?.text  = user.login
+        _binding?.rvUser?.text = user.login
     }
-
 
 
 }
